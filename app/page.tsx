@@ -1,0 +1,60 @@
+const skills = [
+  { n: '01', title: 'Machine Learning', text: 'Modelos preditivos que transformam padrões em decisões práticas.', tags: ['Python', 'Scikit-learn', 'XGBoost'] },
+  { n: '02', title: 'Análise de Dados', text: 'Investigações que encontram a história por trás dos números.', tags: ['Pandas', 'SQL', 'Estatística'] },
+  { n: '03', title: 'Data Visualization', text: 'Dashboards claros para tornar dados complexos fáceis de entender.', tags: ['Power BI', 'Tableau', 'Plotly'] },
+  { n: '04', title: 'Engenharia de Dados', text: 'Pipelines confiáveis, dados organizados e análises que escalam.', tags: ['ETL', 'Cloud', 'Databricks'] },
+];
+
+const projects = [
+  { type: 'MODELO PREDITIVO', title: 'Previsão de churn', metric: '−28%', label: 'redução potencial', text: 'Modelo de classificação para identificar clientes com risco de cancelamento e priorizar ações de retenção.', tags: ['Python', 'LightGBM', 'SHAP'], bars: [48, 66, 79, 92] },
+  { type: 'BUSINESS INTELLIGENCE', title: 'Performance comercial', metric: '12h', label: 'economizadas/semana', text: 'Painel executivo unificando vendas, metas e forecast para uma leitura diária do negócio.', tags: ['Power BI', 'SQL', 'DAX'], bars: [71, 43, 88, 64] },
+  { type: 'NLP', title: 'Voz do cliente', metric: '86%', label: 'de acurácia', text: 'Análise de sentimento e tópicos em avaliações para revelar dores e oportunidades de produto.', tags: ['NLP', 'BERT', 'Python'], bars: [35, 58, 77, 89] },
+];
+
+export default function Home() {
+  return (
+    <main>
+      <header className="nav shell">
+        <a className="brand" href="#top" aria-label="Início"><span>DS</span><b>PORTFÓLIO</b></a>
+        <nav aria-label="Navegação principal"><a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#skills">Skills</a></nav>
+        <a className="navCta" href="mailto:contato@exemplo.com">Vamos conversar <span>↗</span></a>
+      </header>
+
+      <section className="hero shell" id="top">
+        <div className="heroCopy">
+          <div className="eyebrow"><i /> DATA SCIENTIST · ANALYTICS · AI</div>
+          <h1>Transformando dados em <em>clareza.</em></h1>
+          <p>Eu construo análises, modelos e produtos de dados que conectam tecnologia a decisões reais de negócio.</p>
+          <div className="actions"><a className="primary" href="#projetos">Explorar projetos <span>↓</span></a><a className="textLink" href="#sobre">Conheça meu trabalho ↗</a></div>
+          <div className="availability"><span className="faces"><i>Py</i><i>SQL</i><i>AI</i></span><span><b>Disponível para novos projetos</b><small>São Paulo · Remoto</small></span></div>
+        </div>
+        <div className="dataVisual" aria-label="Visualização abstrata de dados">
+          <div className="terminal"><span>● ● ●</span><code>model.fit(X_train, y_train)</code></div>
+          <div className="orb orb1" /><div className="orb orb2" /><div className="orb orb3" />
+          <div className="chartCard"><div className="chartTop"><span>MODEL ACCURACY</span><b>94.8%</b></div><div className="chart"><i/><i/><i/><i/><i/><i/><i/></div><small>performance_ultimos_7_dias</small></div>
+          <span className="floatTag tag1">+ insight</span><span className="floatTag tag2">{'{ data }'}</span>
+        </div>
+      </section>
+
+      <div className="ticker"><div>PYTHON <b>✦</b> MACHINE LEARNING <b>✦</b> SQL <b>✦</b> POWER BI <b>✦</b> ESTATÍSTICA <b>✦</b> STORYTELLING COM DADOS <b>✦</b> PYTHON <b>✦</b></div></div>
+
+      <section className="section shell" id="skills">
+        <div className="sectionHead"><div><span className="kicker">/ O QUE EU FAÇO</span><h2>Dados do problema<br/>até a <em>decisão.</em></h2></div><p>Combino pensamento analítico, código e contexto de negócio para criar soluções úteis — não apenas modelos bonitos.</p></div>
+        <div className="skillGrid">{skills.map((s)=><article className="skillCard" key={s.n}><span className="num">{s.n}</span><div className="skillIcon">{s.n === '01' ? '⌁' : s.n === '02' ? '⌗' : s.n === '03' ? '◒' : '⛁'}</div><h3>{s.title}</h3><p>{s.text}</p><div className="tags">{s.tags.map(t=><span key={t}>{t}</span>)}</div></article>)}</div>
+      </section>
+
+      <section className="projects section" id="projetos"><div className="shell">
+        <div className="sectionHead light"><div><span className="kicker">/ PROJETOS SELECIONADOS</span><h2>Problemas reais.<br/><em>Impacto mensurável.</em></h2></div><p>Uma seleção de projetos que une profundidade técnica, visão de produto e comunicação clara.</p></div>
+        <div className="projectGrid">{projects.map((p,idx)=><article className={`projectCard p${idx+1}`} key={p.title}><div className="miniDash"><span>{p.type}</span><div className="bars">{p.bars.map((b,i)=><i key={i} style={{height:`${b}%`}} />)}</div><div className="metric"><b>{p.metric}</b><small>{p.label}</small></div></div><div className="projectBody"><span>{p.type}</span><h3>{p.title}</h3><p>{p.text}</p><div className="tags dark">{p.tags.map(t=><span key={t}>{t}</span>)}</div></div></article>)}</div>
+      </div></section>
+
+      <section className="about section shell" id="sobre">
+        <div className="portrait"><div className="portraitGrid"/><span className="portraitInitials">DS</span><div className="statusCard"><i/> ABERTO A OPORTUNIDADES</div></div>
+        <div className="aboutCopy"><span className="kicker">/ SOBRE MIM</span><h2>Curiosidade para investigar.<br/><em>Rigor para entregar.</em></h2><p>Sou cientista de dados apaixonado por transformar perguntas difíceis em respostas que movem negócios. Meu trabalho vive no encontro entre estatística, tecnologia e comunicação.</p><p>Acredito que a melhor solução é aquela que as pessoas entendem, confiam e realmente usam.</p><div className="stats"><div><b>4+</b><span>anos com dados</span></div><div><b>20+</b><span>projetos entregues</span></div><div><b>8</b><span>tecnologias-chave</span></div></div></div>
+      </section>
+
+      <section className="contact"><div className="shell contactInner"><span className="kicker">/ VAMOS CONSTRUIR ALGO</span><h2>Tem um desafio de dados?<br/><em>Vamos conversar.</em></h2><p>Estou disponível para projetos, colaborações e oportunidades em Data Science.</p><a className="primary large" href="mailto:contato@exemplo.com">contato@exemplo.com <span>↗</span></a></div></section>
+      <footer className="shell"><a className="brand" href="#top"><span>DS</span><b>PORTFÓLIO</b></a><p>Data Science · Machine Learning · Analytics</p><div><a href="#">LinkedIn ↗</a><a href="#">GitHub ↗</a></div></footer>
+    </main>
+  );
+}
