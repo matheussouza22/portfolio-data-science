@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main>
       <header className="nav shell">
-        <a className="brand" href="#top" aria-label="Início"><span>MS</span><b>MATHEUS DE SOUZA</b></a>
+        <a className="brand" href="#top" aria-label="Início"><span className="bolt" aria-hidden="true"/><b>MATHEUS DE SOUZA</b></a>
         <nav aria-label="Navegação principal"><a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#skills">Skills</a></nav>
         <a className="navCta" href="mailto:matheus.souza@poli.ufrj.br">Vamos conversar <span>↗</span></a>
       </header>
@@ -50,7 +50,7 @@ export default function Home() {
       </section>
 
       <section className="contact"><div className="shell contactInner"><span className="kicker">/ VAMOS CONSTRUIR ALGO</span><h2>Tem um desafio de dados?<br/><em>Vamos conversar.</em></h2><p>Estou disponível para projetos, colaborações e oportunidades em Data Science.</p><a className="primary large" href="mailto:matheus.souza@poli.ufrj.br">matheus.souza@poli.ufrj.br <span>↗</span></a></div></section>
-      <footer className="shell"><a className="brand" href="#top"><span>MS</span><b>MATHEUS DE SOUZA</b></a><p>Data Science · Machine Learning · Analytics</p><div><a href="#">LinkedIn ↗</a><a href="#">GitHub ↗</a></div></footer>
+      <footer className="shell"><a className="brand" href="#top" aria-label="Voltar ao início"><span className="bolt" aria-hidden="true"/><b>MATHEUS DE SOUZA</b></a><p>Data Science · Machine Learning · Analytics</p><div><a href="#">LinkedIn ↗</a><a href="#">GitHub ↗</a></div></footer>
     </main>
   );
 }
