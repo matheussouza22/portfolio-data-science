@@ -13,17 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfólio | Data Science',
-  description: 'Portfólio de Data Science, Machine Learning e Analytics.',
+  title: 'Matheus de Souza | Data Science',
+  description: 'Portfólio de Matheus de Souza: Data Science, Machine Learning e Analytics.',
   metadataBase: new URL(process.env.SITE_URL ?? 'http://localhost:3000'),
   openGraph: {
-    title: 'Portfólio | Data Science',
+    title: 'Matheus de Souza | Data Science',
     description: 'Dados em decisões. Projetos de Machine Learning e Analytics.',
     images: ['/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Portfólio | Data Science',
+    title: 'Matheus de Souza | Data Science',
     description: 'Dados em decisões. Projetos de Machine Learning e Analytics.',
     images: ['/og.png'],
   },

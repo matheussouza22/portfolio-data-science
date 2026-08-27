@@ -1,0 +1,7 @@
+Coloque nesta pasta as imagens dos seus projetos.
+
+Formatos recomendados: JPG, PNG ou WebP.
+Proporção recomendada: 16:10, com pelo menos 1200 x 750 pixels.
+
+Depois, edite o arquivo app/projects.ts e informe o caminho assim:
+image: '/projects/minha-imagem.jpg'
