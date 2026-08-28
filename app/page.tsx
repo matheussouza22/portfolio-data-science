@@ -5,6 +5,12 @@ const skills = [
   { n: '04', title: 'Engenharia de Dados', text: 'Pipelines confiáveis, dados organizados e análises que escalam.', tags: ['ETL', 'Cloud', 'Databricks'] },
 ];
 
+const toolbelt = [
+  'PYTHON', 'MACHINE LEARNING', 'SQL', 'POWER BI', 'ESTATÍSTICA',
+  'PESQUISA OPERACIONAL', 'OTIMIZAÇÃO', 'SIMULAÇÃO', 'PANDAS',
+  'SCIKIT-LEARN', 'GIT', 'DATA VISUALIZATION',
+];
+
 import { projects } from './projects';
 
 export default function Home() {
@@ -32,7 +38,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="ticker"><div>PYTHON <b>✦</b> MACHINE LEARNING <b>✦</b> SQL <b>✦</b> POWER BI <b>✦</b> ESTATÍSTICA <b>✦</b> STORYTELLING COM DADOS <b>✦</b> PYTHON <b>✦</b></div></div>
+      <div className="ticker" aria-label={`Tecnologias: ${toolbelt.join(', ')}`}><div className="tickerTrack"><div className="tickerSet">{toolbelt.map((tool)=><span className="tickerItem" key={tool}>{tool}<b>✦</b></span>)}</div><div className="tickerSet" aria-hidden="true">{toolbelt.map((tool)=><span className="tickerItem" key={`repeat-${tool}`}>{tool}<b>✦</b></span>)}</div></div></div>
 
       <section className="section shell" id="skills">
         <div className="sectionHead"><div><span className="kicker">/ O QUE EU FAÇO</span><h2>Dados do problema<br/>até a <em>decisão.</em></h2></div><p>Combino pensamento analítico, código e contexto de negócio para criar soluções úteis — não apenas modelos bonitos.</p></div>

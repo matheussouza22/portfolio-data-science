@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@keyframes ticker-scroll{to{transform:translateX(-50%)}}.tickerTrack{display:flex;width:max-content;animation:ticker-scroll 36s linear infinite}.tickerSet{display:flex;align-items:center}.tickerItem{display:flex;align-items:center;font:700 11px var(--font-geist-mono);letter-spacing:.12em}.ticker:hover .tickerTrack{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.tickerTrack{animation:none}}
 .brand>span.bolt:after{content:"";width:15px;height:21px;background:var(--mint);clip-path:polygon(55% 0,15% 54%,47% 54%,31% 100%,86% 39%,54% 39%)}
 .portraitPhoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%}
 .education{margin-top:32px;border:1px solid var(--line);background:#fff}.educationLabel{display:block;padding:11px 15px;border-bottom:1px solid var(--line);font:700 9px var(--font-geist-mono);letter-spacing:.12em;color:#7957d8}.education>div{display:flex;flex-direction:column;gap:5px;padding:15px}.education>div+div{border-top:1px solid var(--line)}.education b{font-size:13px}.education small{font-size:11px;color:#777}
