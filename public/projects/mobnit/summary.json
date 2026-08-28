@@ -1,0 +1,20 @@
+{
+  "period_start": "2025-05-06",
+  "period_end": "2025-05-08",
+  "rows": 423600,
+  "estimated_passengers": 850967.0,
+  "average_daily_passengers": 283655.6666666667,
+  "daily_growth": 0.029605345389744242,
+  "lines": 56,
+  "vehicles": 514,
+  "companies": 9,
+  "peak_hour": "07:00",
+  "peak_hour_passengers": 81125.95814182411,
+  "morning_share": 0.40870797574994094,
+  "electronic_card_share": 0.571114978606691,
+  "integration_rows": 1000,
+  "integration_date": "2025-05-06",
+  "integration_rate": 0.12712154980284587,
+  "integrations": 1483,
+  "integration_passengers": 11666
+}
