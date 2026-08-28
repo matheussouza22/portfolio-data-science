@@ -13,6 +13,8 @@ const toolbelt = [
 
 import { projects } from './projects';
 
+const publicBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export default function Home() {
   return (
     <main>
@@ -47,11 +49,11 @@ export default function Home() {
 
       <section className="projects section" id="projetos"><div className="shell">
         <div className="sectionHead light"><div><span className="kicker">/ PROJETOS SELECIONADOS</span><h2>Problemas reais.<br/><em>Impacto mensurável.</em></h2></div><p>Uma seleção de projetos que une profundidade técnica, visão de produto e comunicação clara.</p></div>
-        <div className="projectGrid">{projects.map((p)=><article className={`projectCard theme-${p.theme}`} key={p.title}><div className="miniDash">{p.image ? <img src={p.image} alt={p.imageAlt ?? `Imagem do projeto ${p.title}`} /> : <><span>{p.type}</span><div className="bars">{p.bars?.map((b,i)=><i key={i} style={{height:`${b}%`}} />)}</div></>}<div className="metric"><b>{p.metric}</b><small>{p.metricLabel}</small></div></div><div className="projectBody"><span>{p.type}</span><h3>{p.title}</h3><p>{p.description}</p><div className="tags dark">{p.technologies.map(t=><span key={t}>{t}</span>)}</div>{p.projectUrl && p.projectUrl !== '#' ? <a className="projectLink" href={p.projectUrl} target="_blank" rel="noreferrer">Ver projeto <span>↗</span></a> : null}</div></article>)}</div>
+        <div className="projectGrid">{projects.map((p)=><article className={`projectCard theme-${p.theme}`} key={p.title}><div className="miniDash">{p.image ? <img src={`${publicBasePath}${p.image}`} alt={p.imageAlt ?? `Imagem do projeto ${p.title}`} /> : <><span>{p.type}</span><div className="bars">{p.bars?.map((b,i)=><i key={i} style={{height:`${b}%`}} />)}</div></>}<div className="metric"><b>{p.metric}</b><small>{p.metricLabel}</small></div></div><div className="projectBody"><span>{p.type}</span><h3>{p.title}</h3><p>{p.description}</p><div className="tags dark">{p.technologies.map(t=><span key={t}>{t}</span>)}</div>{p.projectUrl && p.projectUrl !== '#' ? <a className="projectLink" href={p.projectUrl} target="_blank" rel="noreferrer">Ver projeto <span>↗</span></a> : null}</div></article>)}</div>
       </div></section>
 
       <section className="about section shell" id="sobre">
-        <div className="portrait"><img className="portraitPhoto" src="/matheus-perfil.png" alt="Matheus de Souza"/><div className="statusCard"><i/> ABERTO A OPORTUNIDADES</div></div>
+        <div className="portrait"><img className="portraitPhoto" src={`${publicBasePath}/matheus-perfil.png`} alt="Matheus de Souza"/><div className="statusCard"><i/> ABERTO A OPORTUNIDADES</div></div>
         <div className="aboutCopy"><span className="kicker">/ SOBRE MIM</span><h2>Curiosidade para investigar.<br/><em>Rigor para entregar.</em></h2><p>Eu sou Matheus de Souza, cientista de dados apaixonado por transformar perguntas difíceis em respostas que movem negócios. Meu trabalho vive no encontro entre estatística, tecnologia e comunicação.</p><p>Acredito que a melhor solução é aquela que as pessoas entendem, confiam e realmente usam.</p><div className="education"><span className="educationLabel">FORMAÇÃO ACADÊMICA</span><div><b>Bacharel em Matemática Aplicada</b><small>Universidade Federal do Rio de Janeiro · UFRJ</small></div><div><b>Mestrando em Engenharia de Transportes</b><small>COPPE · Universidade Federal do Rio de Janeiro</small></div></div><div className="stats"><div><b>ML</b><span>modelos preditivos</span></div><div><b>BI</b><span>análises e dashboards</span></div><div><b>AI</b><span>soluções inteligentes</span></div></div></div>
       </section>
 
