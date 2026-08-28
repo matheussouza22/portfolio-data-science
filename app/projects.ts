@@ -8,6 +8,7 @@ export type Project = {
   image?: string;
   imageAlt?: string;
   projectUrl?: string;
+  external?: boolean;
   bars?: number[];
   theme: 'lilac' | 'mint' | 'white';
 };
@@ -22,14 +23,15 @@ export type Project = {
 export const projects: Project[] = [
   {
     type: 'MODELO PREDITIVO',
-    title: 'Previsão de churn',
-    metric: '−28%',
-    metricLabel: 'redução potencial',
-    description: 'Modelo de classificação para identificar clientes com risco de cancelamento e priorizar ações de retenção.',
-    technologies: ['Python', 'LightGBM', 'SHAP'],
-    image: '/og.png',
-    imageAlt: 'Visual do projeto de previsão de churn',
-    projectUrl: '#',
+    title: 'Previsão de inadimplência',
+    metric: '0,952',
+    metricLabel: 'ROC AUC',
+    description: 'Modelo de risco para estimar a probabilidade de atraso e priorizar cobranças com validação temporal.',
+    technologies: ['Python', 'HistGradientBoosting', 'Scikit-learn'],
+    image: '/projects/inadimplencia/model-comparison.png',
+    imageAlt: 'Comparação de desempenho dos modelos de risco',
+    projectUrl: '/projetos/previsao-de-inadimplencia/',
+    external: false,
     theme: 'lilac',
   },
   {
