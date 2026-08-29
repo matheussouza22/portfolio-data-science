@@ -20,7 +20,7 @@ const topLines = [
 
 export const metadata: Metadata = {
   title: 'Mobilidade urbana · MobNit | Matheus de Souza',
-  description: 'Análise da demanda horária, linhas, modalidades e integrações no transporte público municipal de Niterói.',
+  description: 'Análise da demanda horária, linhas, modalidades tarifárias e integrações dos ônibus municipais de Niterói.',
   openGraph: {
     title: 'Mobilidade urbana · MobNit',
     description: '851 mil passageiros estimados, 56 linhas e uma leitura operacional do sistema municipal.',
@@ -47,7 +47,7 @@ export default function MobNitCase() {
         <div>
           <span className="caseLabel">MOBNIT · TRANSPORTES & MOBILIDADE</span>
           <h1>Mobilidade urbana em <em>Niterói.</em></h1>
-          <p>Uma leitura operacional da demanda estimada, dos picos horários, das linhas e das integrações no transporte público municipal.</p>
+          <p>Uma leitura operacional da demanda estimada, dos picos horários, das linhas e das integrações dos ônibus municipais de Niterói.</p>
           <div className="caseTags"><span>Python</span><span>Pandas</span><span>Análise temporal</span><span>Planejamento de transportes</span></div>
         </div>
         <aside className="caseHeroPanel mobHeroPanel">
@@ -68,7 +68,7 @@ export default function MobNitCase() {
       <section className="caseSection shell mobIntro">
         <div className="caseSectionTitle"><span className="caseLabel">/ PERGUNTA DE PLANEJAMENTO</span><h2>Quando e onde a rede exige mais <em>atenção?</em></h2></div>
         <div className="caseIntroGrid">
-          <div className="caseLead"><p>A análise busca identificar os momentos de maior pressão operacional, as linhas que concentram demanda, o papel de cada modalidade tarifária e como as integrações variam entre operadores.</p></div>
+          <div className="caseLead"><p>O estudo considera exclusivamente as linhas municipais de ônibus de Niterói e busca identificar os momentos de maior pressão operacional, as linhas que concentram demanda, o papel de cada modalidade tarifária e como as integrações variam entre operadores.</p></div>
           <div className="caseDefinition mobDefinition"><span>UNIDADE DE ANÁLISE</span><b>linha × veículo × modalidade × hora</b><p>O indicador principal é uma estimativa horária obtida pela distribuição de passageiros com pesos de hora e turno. Portanto, os volumes representam demanda modelada, não contagem direta em campo.</p></div>
         </div>
       </section>
@@ -124,7 +124,7 @@ export default function MobNitCase() {
         <div className="caseSectionTitle"><span className="caseLabel">/ LIMITAÇÕES E PRÓXIMOS PASSOS</span><h2>Mais tempo, mais contexto, melhores <em>decisões.</em></h2></div><div className="limitGrid"><article><b>Janela curta</b><p>Três dias úteis não capturam sazonalidade semanal, mensal, férias, eventos ou chuva.</p></article><article><b>Demanda estimada</b><p>Os volumes resultam de pesos horários; validação com contagens, GPS ou bilhetagem aumenta a confiança.</p></article><article><b>Integração parcial</b><p>Apenas 6 de maio está disponível, impedindo inferência robusta de tendência ou estabilidade.</p></article><article><b>Próxima camada</b><p>Combinar demanda com frequência, intervalo, velocidade, cumprimento de viagens e capacidade do veículo.</p></article></div>
       </section>
 
-      <section className="caseClosing mobClosing"><div className="shell"><span className="caseLabel">/ CONCLUSÃO</span><h2>Dados operacionais em uma visão de <em>rede.</em></h2><p>A análise revela quando o sistema é mais pressionado, quais linhas concentram movimento e onde a informação ainda precisa amadurecer. É uma base objetiva para planejar oferta, priorizar monitoramento e orientar novas investigações.</p><a className="primary large" href="mailto:matheus.souza@poli.ufrj.br">Conversar sobre mobilidade <span>↗</span></a></div></section>
+      <section className="caseClosing mobClosing"><div className="shell"><span className="caseLabel">/ CONCLUSÃO</span><h2>Dados operacionais em uma visão de <em>rede.</em></h2><p>A análise revela quando a rede municipal de ônibus é mais pressionada, quais linhas concentram movimento e onde a informação ainda precisa amadurecer. É uma base objetiva para planejar oferta, priorizar monitoramento e orientar novas investigações.</p><a className="primary large" href="mailto:matheus.souza@poli.ufrj.br">Conversar sobre mobilidade <span>↗</span></a></div></section>
 
       <footer className="caseFooter shell"><a className="brand" href={`${publicBasePath}/`}><span className="bolt" aria-hidden="true"/><b>MATHEUS DE SOUZA</b></a><p>Data Science · Engenharia de Transportes · Mobilidade</p><a href={`${publicBasePath}/#projetos`}>Ver outros projetos ↑</a></footer>
     </main>
