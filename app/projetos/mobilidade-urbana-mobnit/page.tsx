@@ -43,6 +43,11 @@ export default function MobNitCase() {
         <a className="caseBack" href={`${publicBasePath}/#projetos`}>← Portfólio</a>
       </header>
 
+      <section className="shell mobSourceHeader" aria-label="Fonte dos dados">
+        <img src={`${publicBasePath}/projects/mobnit/logo-mobnit.png`} alt="MobNit"/>
+        <div><span>FONTE DOS DADOS</span><b>Sistema de mobilidade urbana do município de Niterói</b><p>Os dados utilizados neste estudo foram fornecidos pelo MobNit.</p></div>
+      </section>
+
       <section className="caseHero shell mobHero">
         <div>
           <span className="caseLabel">MOBNIT · TRANSPORTES & MOBILIDADE</span>
@@ -65,6 +70,14 @@ export default function MobNitCase() {
         <div><b>07h</b><span>maior pico de demanda</span></div>
       </section>
 
+      <section className="caseSection mobInstitution">
+        <div className="shell">
+          <div className="mobInstitutionGrid"><div><span className="caseLabel">/ REFERÊNCIA INSTITUCIONAL</span><h2>Mobilidade pública orientada por <em>dados.</em></h2></div><div className="mobInstitutionCopy"><p>O MobNit é o sistema de mobilidade urbana do município de Niterói. No processo de digitalização do setor público, ele apoia os gestores municipais no acompanhamento diário da operação e na tomada de decisões mais assertivas sobre o transporte da cidade.</p><p>Nesta etapa, o sistema está estruturado para os dados dos ônibus municipais. A evolução prevista amplia essa capacidade para produzir informações sobre todo o sistema de mobilidade urbana do município.</p></div></div>
+          <div className="mobPurposeGrid"><article><span>GESTÃO MUNICIPAL</span><b>Acompanhamento diário</b><p>Indicadores operacionais para apoiar planejamento, monitoramento e decisões sobre a rede municipal de ônibus.</p></article><article><span>TRANSPARÊNCIA</span><b>Dados públicos</b><p>A sociedade pode acompanhar informações mensais da operação dos ônibus municipais de Niterói.</p></article><article><span>INFORMAÇÃO AO USUÁRIO</span><b>Previsibilidade em tempo real</b><p>A consulta de previsibilidade informa quanto tempo falta para o ônibus chegar ao ponto.</p></article></div>
+          <aside className="mobDataCredit"><span>DADOS DO ESTUDO</span><p><b>Fonte: MobNit.</b> O tratamento analítico, as visualizações e as conclusões apresentadas neste portfólio são de responsabilidade do autor.</p></aside>
+        </div>
+      </section>
+
       <section className="caseSection shell mobIntro">
         <div className="caseSectionTitle"><span className="caseLabel">/ PERGUNTA DE PLANEJAMENTO</span><h2>Quando e onde a rede exige mais <em>atenção?</em></h2></div>
         <div className="caseIntroGrid">
@@ -80,7 +93,7 @@ export default function MobNitCase() {
       <section className="caseSection shell mobSources">
         <div className="caseSectionTitle"><span className="caseLabel">/ FONTES E ESCOPO</span><h2>Recorte comparável, premissas <em>explícitas.</em></h2></div>
         <div className="sourceGrid mobSourceGrid">
-          <article><span>01</span><b>Demanda horária</b><strong>423,6 mil</strong><p>Arquivo datado de 6 a 8 de maio, utilizado para todos os indicadores de demanda.</p></article>
+          <article><span>01</span><b>Demanda horária · MobNit</b><strong>423,6 mil</strong><p>Arquivo datado de 6 a 8 de maio, utilizado para todos os indicadores de demanda.</p></article>
           <article><span>02</span><b>Integrações</b><strong>1.000</strong><p>Registros por empresa, linha e veículo; a cobertura disponível é somente de 6 de maio.</p></article>
           <article><span>03</span><b>Consolidado amplo</b><strong>52,9 mi</strong><p>Arquivo de referência maior, mantido fora da comparação por não ter cobertura equivalente de integração.</p></article>
           <article><span>04</span><b>Tipo de dia</b><strong>Útil</strong><p>Os três dias da janela principal são úteis, permitindo comparação temporal homogênea.</p></article>
