@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Dimensionamento de praças de pedágio</title>
+  <desc id="desc">Gráfico horário e cabines em identidade preta, lilás e verde-água.</desc>
+  <rect width="1200" height="700" fill="#0b0c0f"/>
+  <g stroke="#fff" stroke-opacity=".08"><path d="M0 100h1200M0 200h1200M0 300h1200M0 400h1200M0 500h1200M0 600h1200"/><path d="M100 0v700M200 0v700M300 0v700M400 0v700M500 0v700M600 0v700M700 0v700M800 0v700M900 0v700M1000 0v700M1100 0v700"/></g>
+  <text x="70" y="75" fill="#61efce" font-family="monospace" font-size="20" letter-spacing="4">M/G/C · CAPACIDADE HORÁRIA</text>
+  <path d="M70 500 C160 490 200 420 280 440 S420 330 500 355 S630 250 710 275 S850 130 930 170 S1050 105 1130 120" fill="none" stroke="#9e7bf5" stroke-width="14" stroke-linecap="round"/>
+  <g fill="#61efce"><rect x="90" y="520" width="36" height="80"/><rect x="150" y="485" width="36" height="115"/><rect x="210" y="500" width="36" height="100"/><rect x="270" y="440" width="36" height="160"/><rect x="330" y="410" width="36" height="190"/><rect x="390" y="370" width="36" height="230"/></g>
+  <g fill="#9e7bf5"><rect x="90" y="575" width="36" height="25"/><rect x="150" y="550" width="36" height="50"/><rect x="210" y="560" width="36" height="40"/><rect x="270" y="525" width="36" height="75"/><rect x="330" y="500" width="36" height="100"/><rect x="390" y="480" width="36" height="120"/></g>
+  <rect x="790" y="390" width="340" height="210" fill="#15171c" stroke="#fff" stroke-opacity=".15"/>
+  <text x="830" y="445" fill="#aaa" font-family="monospace" font-size="16">CENÁRIO ROBUSTO</text><text x="830" y="535" fill="#61efce" font-family="Arial" font-size="76" font-weight="700">+20%</text><text x="830" y="570" fill="#aaa" font-family="monospace" font-size="14">DEMANDA + TEMPO DE SERVIÇO</text>
+</svg>
