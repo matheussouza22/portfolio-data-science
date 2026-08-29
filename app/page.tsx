@@ -27,7 +27,7 @@ export default function Home() {
       <section className="hero shell" id="top">
         <div className="heroCopy">
           <div className="eyebrow"><i /> MATHEUS DE SOUZA · DATA SCIENCE</div>
-          <h1>Transformando dados em <em>clareza.</em></h1>
+          <h1>Transformando dados em <em>insights.</em></h1>
           <p>Sou Matheus de Souza. Construo análises, modelos e produtos de dados que conectam tecnologia a decisões reais de negócio.</p>
           <div className="actions"><a className="primary" href="#projetos">Explorar projetos <span>↓</span></a><a className="textLink" href="#sobre">Conheça meu trabalho ↗</a></div>
           <div className="availability"><span className="faces"><i>Py</i><i>SQL</i><i>AI</i></span><span><b>Disponível para novos projetos</b><small>Brasil · Remoto</small></span></div>
@@ -43,7 +43,7 @@ export default function Home() {
       <div className="ticker" aria-label={`Tecnologias: ${toolbelt.join(', ')}`}><div className="tickerTrack"><div className="tickerSet">{toolbelt.map((tool)=><span className="tickerItem" key={tool}>{tool}<b>✦</b></span>)}</div><div className="tickerSet" aria-hidden="true">{toolbelt.map((tool)=><span className="tickerItem" key={`repeat-${tool}`}>{tool}<b>✦</b></span>)}</div></div></div>
 
       <section className="section shell" id="skills">
-        <div className="sectionHead"><div><span className="kicker">/ O QUE EU FAÇO</span><h2>Dados do problema<br/>até a <em>decisão.</em></h2></div><p>Combino pensamento analítico, código e contexto de negócio para criar soluções úteis — não apenas modelos bonitos.</p></div>
+        <div className="sectionHead"><div><span className="kicker">/ O QUE EU FAÇO</span><h2>Dados do problema<br/>até a <em>decisão.</em></h2></div><p>Combino pensamento analítico, código e contexto de negócio para criar soluções úteis.</p></div>
         <div className="skillGrid">{skills.map((s)=><article className="skillCard" key={s.n}><span className="num">{s.n}</span><div className="skillIcon">{s.n === '01' ? '⌁' : s.n === '02' ? '⌗' : s.n === '03' ? '◒' : '⛁'}</div><h3>{s.title}</h3><p>{s.text}</p><div className="tags">{s.tags.map(t=><span key={t}>{t}</span>)}</div></article>)}</div>
       </section>
 
