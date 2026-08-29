@@ -7,6 +7,8 @@ type Hour = {
   hour: number; demand: number; autoDemand: number; manualDemand: number;
   autoBooths: number; manualBooths: number; totalBooths: number; robustBooths: number;
   autoWait: number; manualWait: number; autoRho: number; manualRho: number;
+  autoP0: number; manualP0: number; autoLq: number; manualLq: number;
+  autoL: number; manualL: number; autoW: number; manualW: number;
 };
 
 type Unit = {
@@ -59,6 +61,23 @@ function BoothChart({ data }: { data: Hour[] }) {
   </figure>;
 }
 
+function QueueMetrics({ peak }: { peak: Hour }) {
+  const rows = [
+    ['P₀', 'Sistema vazio', `${peak.autoP0}%`, `${peak.manualP0}%`],
+    ['L', 'Veículos no sistema', peak.autoL, peak.manualL],
+    ['Lq', 'Veículos aguardando', peak.autoLq, peak.manualLq],
+    ['W', 'Tempo total', `${peak.autoW}s`, `${peak.manualW}s`],
+    ['Wq', 'Tempo na fila', `${peak.autoWait}s`, `${peak.manualWait}s`],
+  ];
+  return <div className={styles.queueResult}>
+    <div className={styles.queueResultCopy}><span>TEORIA DE FILAS · HORA DE PICO</span><h3>O que acontece antes e durante o atendimento.</h3><p>Os dois canais são modelados separadamente. P₀ vem da referência M/M/c; os demais indicadores recebem o ajuste de variabilidade do modelo M/G/c.</p></div>
+    <div className={styles.queueTable} role="table" aria-label="Indicadores de filas na hora de pico">
+      <div className={styles.queueTableHead} role="row"><span>Indicador</span><span>TAG</span><span>Manual</span></div>
+      {rows.map(([symbol,label,auto,manual]) => <div className={styles.queueTableRow} role="row" key={symbol as string}><span><b>{symbol}</b><small>{label}</small></span><strong>{auto}</strong><strong>{manual}</strong></div>)}
+    </div>
+  </div>;
+}
+
 export default function PlazaExplorer({ units }: { units: Unit[] }) {
   const plazas = useMemo(() => [...new Set(units.map(u => u.plaza))].sort((a,b) => a.localeCompare(b,'pt-BR')), [units]);
   const [plaza, setPlaza] = useState('BARUERI');
@@ -93,6 +112,7 @@ export default function PlazaExplorer({ units }: { units: Unit[] }) {
       <article><span>ESPERA NO PICO · MANUAL</span><b>{peak.manualWait}s</b><small>{peak.manualRho}% de utilização modelada</small></article>
       <article><span>ESCALA DO DIA</span><b>{selected.summary.dynamicBoothHours}</b><small>cabine-horas ativas na programação-base</small></article>
     </div>
+    <QueueMetrics peak={peak}/>
     <div className={styles.coverageNote}><span>COBERTURA</span><p><b>{selected.coverage.days} dias observados</b> · {selected.coverage.hoursPerDay} horas/dia em média. As recomendações são necessidades teóricas; a base não contém o inventário físico atual da praça.</p></div>
   </div>;
 }

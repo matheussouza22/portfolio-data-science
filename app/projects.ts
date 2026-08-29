@@ -52,7 +52,7 @@ export const projects: Project[] = [
     title: 'Dimensionamento de praças de pedágio',
     metric: '207',
     metricLabel: 'praças analisadas',
-    description: 'Teoria de filas aplicada à demanda horária, com escala operacional e cenário robusto por praça e sentido.',
+    description: 'Dados da ARTESP e teoria de filas aplicados à demanda horária, com escala e cenário robusto por praça e sentido.',
     technologies: ['Python', 'M/G/c', 'Otimização', 'Transportes'],
     image: '/projects/pracas-pedagio/capa.svg',
     imageAlt: 'Perfil horário e dimensionamento de cabines de pedágio',

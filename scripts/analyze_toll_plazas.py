@@ -12,6 +12,7 @@ import argparse
 import json
 import re
 import unicodedata
+from math import factorial
 from pathlib import Path
 
 import numpy as np
@@ -46,7 +47,10 @@ def scenario(detail: pd.DataFrame, demand: str, service: str) -> pd.DataFrame:
         detail["CENARIO_DEMANDA"].eq(demand)
         & detail["CENARIO_SERVICO"].eq(service)
     ].copy()
-    value_columns = ["DEMANDA_BASE", "CABINES_NECESSARIAS_HORA", "RHO", "WQ_SEG"]
+    value_columns = [
+        "DEMANDA_BASE", "LAMBDA", "MU", "CABINES_NECESSARIAS_HORA", "RHO",
+        "P_ESPERA_REFERENCIA", "LQ", "WQ_SEG", "W_SEG", "L",
+    ]
     wide = subset.pivot_table(
         index=["LOTE", "PRACA", "SENTIDO", "HORA"],
         columns="CLASSE_ATENDIMENTO",
@@ -55,6 +59,21 @@ def scenario(detail: pd.DataFrame, demand: str, service: str) -> pd.DataFrame:
     )
     wide.columns = [f"{metric}__{klass}" for metric, klass in wide.columns]
     return wide.reset_index()
+
+
+def p0_erlang(lambda_hour: float, mu_hour: float, booths: int) -> float:
+    """Probabilidade de sistema vazio na referência M/M/c do Allen–Cunneen."""
+    if lambda_hour <= 0:
+        return 1.0
+    if mu_hour <= 0 or booths <= 0:
+        return 0.0
+    offered = lambda_hour / mu_hour
+    rho = lambda_hour / (booths * mu_hour)
+    if rho >= 1:
+        return 0.0
+    base = sum((offered**n) / factorial(n) for n in range(booths))
+    tail = (offered**booths) / (factorial(booths) * (1 - rho))
+    return 1 / (base + tail)
 
 
 def build(source: Path) -> dict:
@@ -98,19 +117,29 @@ def build(source: Path) -> dict:
 
         hourly = []
         for idx, row in group.reset_index(drop=True).iterrows():
+            auto_c = int(auto_booths.iloc[idx])
+            manual_c = int(manual_booths.iloc[idx])
             hourly.append({
                 "hour": int(row["HORA"]),
                 "demand": clean_number(total_demand.iloc[idx]),
                 "autoDemand": clean_number(auto_demand.iloc[idx]),
                 "manualDemand": clean_number(manual_demand.iloc[idx]),
-                "autoBooths": int(auto_booths.iloc[idx]),
-                "manualBooths": int(manual_booths.iloc[idx]),
+                "autoBooths": auto_c,
+                "manualBooths": manual_c,
                 "totalBooths": int(auto_booths.iloc[idx] + manual_booths.iloc[idx]),
                 "robustBooths": int(robust_auto.iloc[idx] + robust_manual.iloc[idx]),
                 "autoWait": clean_number(row.get("WQ_SEG__AUTOMATICO_TAG", 0), 2),
                 "manualWait": clean_number(row.get("WQ_SEG__MANUAL_PAGAMENTO", 0), 2),
                 "autoRho": clean_number(100 * row.get("RHO__AUTOMATICO_TAG", 0), 1),
                 "manualRho": clean_number(100 * row.get("RHO__MANUAL_PAGAMENTO", 0), 1),
+                "autoP0": clean_number(100 * p0_erlang(row.get("LAMBDA__AUTOMATICO_TAG", 0), row.get("MU__AUTOMATICO_TAG", 0), auto_c), 2),
+                "manualP0": clean_number(100 * p0_erlang(row.get("LAMBDA__MANUAL_PAGAMENTO", 0), row.get("MU__MANUAL_PAGAMENTO", 0), manual_c), 2),
+                "autoLq": clean_number(row.get("LQ__AUTOMATICO_TAG", 0), 2),
+                "manualLq": clean_number(row.get("LQ__MANUAL_PAGAMENTO", 0), 2),
+                "autoL": clean_number(row.get("L__AUTOMATICO_TAG", 0), 2),
+                "manualL": clean_number(row.get("L__MANUAL_PAGAMENTO", 0), 2),
+                "autoW": clean_number(row.get("W_SEG__AUTOMATICO_TAG", 0), 2),
+                "manualW": clean_number(row.get("W_SEG__MANUAL_PAGAMENTO", 0), 2),
             })
 
         units.append({
